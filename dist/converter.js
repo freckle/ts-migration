@@ -23,6 +23,8 @@ const babel = __importStar(require("@babel/core"));
 const plugin_syntax_dynamic_import_1 = __importDefault(require("@babel/plugin-syntax-dynamic-import"));
 // @ts-ignore
 const plugin_proposal_nullish_coalescing_operator_1 = __importDefault(require("@babel/plugin-proposal-nullish-coalescing-operator"));
+// @ts-ignore
+const plugin_proposal_optional_chaining_1 = __importDefault(require("@babel/plugin-proposal-optional-chaining"));
 const recast_1 = __importDefault(require("recast"));
 const fs_1 = require("fs");
 const babel_plugin_flow_to_typescript_1 = __importDefault(require("babel-plugin-flow-to-typescript"));
@@ -52,7 +54,7 @@ const recastPlugin = function (rootDir) {
     };
 };
 exports.babelOptions = (rootDir) => ({
-    plugins: [recastPlugin(rootDir), babel_plugin_flow_to_typescript_1.default, plugin_syntax_dynamic_import_1.default, plugin_proposal_nullish_coalescing_operator_1.default]
+    plugins: [recastPlugin(rootDir), babel_plugin_flow_to_typescript_1.default, plugin_syntax_dynamic_import_1.default, plugin_proposal_nullish_coalescing_operator_1.default, plugin_proposal_optional_chaining_1.default]
 });
 const successFiles = [];
 const errorFiles = [];

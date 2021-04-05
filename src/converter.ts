@@ -3,6 +3,8 @@ import * as babel from "@babel/core";
 import dynamicImport from "@babel/plugin-syntax-dynamic-import";
 // @ts-ignore
 import nullishCoalescing from "@babel/plugin-proposal-nullish-coalescing-operator";
+// @ts-ignore
+import optionalChaining from "@babel/plugin-proposal-optional-chaining";
 import recast from "recast";
 import { writeFileSync } from "fs";
 import flowToTypeScript from "babel-plugin-flow-to-typescript";
@@ -40,7 +42,7 @@ const recastPlugin = function(rootDir: string) {
 };
 
 export const babelOptions = (rootDir: string): babel.TransformOptions => ({
-  plugins: [recastPlugin(rootDir), flowToTypeScript, dynamicImport, nullishCoalescing]
+  plugins: [recastPlugin(rootDir), flowToTypeScript, dynamicImport, nullishCoalescing, optionalChaining]
 });
 
 const successFiles: string[] = [];
