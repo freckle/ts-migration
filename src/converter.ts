@@ -1,9 +1,11 @@
 import * as babel from "@babel/core";
 // @ts-ignore
 import dynamicImport from "@babel/plugin-syntax-dynamic-import";
+// @ts-ignore
+import nullishCoalescing from "@babel/plugin-proposal-nullish-coalescing-operator";
 import recast from "recast";
 import { writeFileSync } from "fs";
-import plugin from "babel-plugin-flow-to-typescript";
+import flowToTypeScript from "babel-plugin-flow-to-typescript";
 import { asyncForEach } from "./util";
 import prettierFormat from "./prettierFormat";
 import { stripComments } from "./stripComments";
@@ -38,7 +40,7 @@ const recastPlugin = function(rootDir: string) {
 };
 
 export const babelOptions = (rootDir: string): babel.TransformOptions => ({
-  plugins: [recastPlugin(rootDir), plugin, dynamicImport]
+  plugins: [recastPlugin(rootDir), flowToTypeScript, dynamicImport, nullishCoalescing]
 });
 
 const successFiles: string[] = [];
